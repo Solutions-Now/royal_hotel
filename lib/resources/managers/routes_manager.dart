@@ -54,10 +54,16 @@ class RouteGenerator {
   static Scaffold unDefinedRoute() {
     return Scaffold(
       appBar: AppBar(
-        title: Text(localizations.noRouteFound),
+        title: ScaleText(
+          localizations.noRouteFound,
+          overflow: TextOverflow.visible,
+        ),
       ),
       body: Center(
-        child: Text(localizations.noRouteFound),
+        child: ScaleText(
+          localizations.noRouteFound,
+          overflow: TextOverflow.visible,
+        ),
       ),
     );
   }

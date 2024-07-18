@@ -31,8 +31,9 @@ class ConnectionErrorController extends GetxController {
                         width: (Get.width * 0.70) - 16.0,
                         child: Column(
                           children: [
-                            Text(
+                            ScaleText(
                               localizations.connectionFailedConnectServer,
+                              overflow: TextOverflow.visible,
                               softWrap: true,
                               textAlign: TextAlign.start,
                               style: TextStyle(

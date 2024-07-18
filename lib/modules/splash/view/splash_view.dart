@@ -27,8 +27,9 @@ class SplashView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              Text(
+              ScaleText(
                 localizations.appName,
+                overflow: TextOverflow.visible,
                 style: TextStyle(
                   color: theme.colorScheme.secondary,
                   fontSize: 30,
