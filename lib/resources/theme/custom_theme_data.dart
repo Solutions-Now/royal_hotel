@@ -12,8 +12,8 @@ class CustomThemeData extends ThemeExtension<CustomThemeData> {
     required this.lightGrey,
     required this.darkGrey,
     required this.textField,
-    // required this.pink,
-    // required this.blue,
+    required this.pink,
+    required this.blue,
   });
 
   final Color white;
@@ -26,9 +26,8 @@ class CustomThemeData extends ThemeExtension<CustomThemeData> {
   final Color lightGrey;
   final Color darkGrey;
   final Color textField;
-
-  // final Color pink;
-  // final Color blue;
+  final Color pink;
+  final Color blue;
 
   @override
   ThemeExtension<CustomThemeData> copyWith() {
@@ -43,16 +42,16 @@ class CustomThemeData extends ThemeExtension<CustomThemeData> {
       lightGrey: lightGrey,
       darkGrey: darkGrey,
       textField: textField,
-      // pink: pink,
-      // blue: blue,
+      pink: pink,
+      blue: blue,
     );
   }
 
   @override
-  ThemeExtension<CustomThemeData> lerp(covariant ThemeExtension<CustomThemeData>? other, double t) {
-    if (other is! CustomThemeData ) {
+  ThemeExtension<CustomThemeData> lerp(
+      covariant ThemeExtension<CustomThemeData>? other, double t) {
+    if (other is! CustomThemeData) {
       return this;
-      
     }
     return CustomThemeData(
       white: white,
@@ -65,8 +64,8 @@ class CustomThemeData extends ThemeExtension<CustomThemeData> {
       lightGrey: lightGrey,
       darkGrey: darkGrey,
       textField: textField,
-      // pink: pink,
-      // blue: blue,
+      pink: pink,
+      blue: blue,
     );
   }
 }

@@ -45,6 +45,8 @@ class IconsManager {
 class ImagesManager {
   static const String connectionErrorSvg = '$_imagesPath/connection_error.svg';
   static const String loginBackground = '$_imagesPath/login.jpeg';
+  static const String forgetPassword = '$_imagesPath/forget_password.png';
+  static const String verifyAccount = '$_imagesPath/verify_account.png';
   // static const String newPasswordSvg = '$_imagesPath/new-password.svg';
   // static const String resetPasswordSvg = '$_imagesPath/reset-password.svg';
   // static const String welcomeSvg = '$_imagesPath/welcome.svg';
