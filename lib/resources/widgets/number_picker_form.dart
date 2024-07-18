@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
-//
-// import '../../../main.dart';
-// import '../../components.dart';
-//
+
+// import '../../main.dart';
+// import '../components.dart';
+
 // class NumberPickerForm extends StatelessWidget {
 //   const NumberPickerForm({
 //     super.key,
@@ -14,7 +14,7 @@
 //     required this.onIncrease,
 //     required this.onDecrease,
 //   });
-//
+
 //   final TextEditingController? controller;
 //   final String? label;
 //   final Widget? prefixIcon;
@@ -22,7 +22,7 @@
 //   final int? number;
 //   final void Function(int) onIncrease;
 //   final void Function(int) onDecrease;
-//
+
 //   @override
 //   Widget build(BuildContext context) {
 //     return Stack(
@@ -76,8 +76,8 @@
 //           alignment: AlignmentDirectional.centerEnd,
 //           child: Padding(
 //             padding: EdgeInsets.only(
-//               right: Components().isEnglish() ? 8.0 : 0.0,
-//               left: !Components().isEnglish() ? 8.0 : 0.0,
+//               right: !Components().isRTL() ? 8.0 : 0.0,
+//               left: Components().isRTL() ? 8.0 : 0.0,
 //             ),
 //             child: Row(
 //               mainAxisSize: MainAxisSize.min,

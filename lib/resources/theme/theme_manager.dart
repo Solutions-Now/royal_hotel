@@ -107,8 +107,8 @@ class ThemeManager {
           lightGrey: ColorsManager.lightGrey,
           darkGrey: ColorsManager.darkGrey,
           textField: ColorsManager.textField,
-          // pink: ColorsManager.pink,
-          // blue: ColorsManager.blue,
+          pink: ColorsManager.pink,
+          blue: ColorsManager.blue,
         )
       ],
     );
