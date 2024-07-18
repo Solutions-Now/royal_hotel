@@ -20,6 +20,7 @@ class SwitchItem extends StatelessWidget {
       value: value,
       title: ScaleText(
         title,
+        overflow: TextOverflow.visible,
         style: theme.textTheme.titleLarge,
       ),
       secondary: leading,

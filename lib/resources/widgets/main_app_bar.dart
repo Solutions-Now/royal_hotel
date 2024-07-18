@@ -15,15 +15,17 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
 
   @override
-  Size get preferredSize => const Size.fromHeight(ConstantsManager.appbarHeight);
+  Size get preferredSize =>
+      const Size.fromHeight(ConstantsManager.appbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       systemOverlayStyle: Components().systemUiOverlayStyle(),
       automaticallyImplyLeading: false,
-      title: Text(
+      title: ScaleText(
         title,
+        overflow: TextOverflow.visible,
         style: TextStyle(
           fontSize: 16.0,
           color: theme.colorScheme.primary,
@@ -53,7 +55,8 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                   onPressed: () {
                     Scaffold.of(context).openDrawer();
                   },
-                  tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                  tooltip:
+                      MaterialLocalizations.of(context).openAppDrawerTooltip,
                 )
               : null,
       bottom: PreferredSize(

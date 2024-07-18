@@ -14,8 +14,9 @@ class ConnectionErrorView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
-          child: Text(
+          child: ScaleText(
             localizations.yourDeviceNotConnectedInternet,
+            overflow: TextOverflow.visible,
             style: TextStyle(
               color: customTheme.black,
               fontSize: 16.0,

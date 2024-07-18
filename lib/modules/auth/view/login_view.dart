@@ -1,3 +1,5 @@
+import 'package:royal_hotel/main.dart';
+
 import '../../../resources/helpers/all_imports.dart';
 
 class LogInView extends StatelessWidget {
@@ -61,15 +63,18 @@ class LogInView extends StatelessWidget {
                             const Spacer(
                               flex: 3,
                             ),
-                            const Align(
-                              alignment: Alignment.centerLeft,
+                            Align(
+                              alignment: Components().isRTL()
+                                  ? Alignment.centerRight
+                                  : Alignment.centerLeft,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   ScaleText(
-                                    'signIn',
+                                    localizations.login,
+                                    overflow: TextOverflow.visible,
                                     style: TextStyle(
                                       letterSpacing: 1,
                                       fontSize: 30,
@@ -79,6 +84,7 @@ class LogInView extends StatelessWidget {
                                   ),
                                   ScaleText(
                                     'login Description',
+                                    overflow: TextOverflow.visible,
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.white,
@@ -115,8 +121,9 @@ class LogInView extends StatelessWidget {
                                   onTap: () {
                                     // Get.toNamed("/forgotPassword");
                                   },
-                                  child: const Text(
+                                  child: const ScaleText(
                                     'forgetPassword',
+                                    overflow: TextOverflow.visible,
                                     style: TextStyle(
                                       color: Colors.white,
                                       decoration: TextDecoration.underline,
@@ -153,18 +160,20 @@ class LogInView extends StatelessWidget {
                                   // alignment: Alignment.centerRight,
                                   child: Row(
                                     children: [
-                                      const Text(
+                                      const ScaleText(
                                         'dontHaveAccount? ',
+                                        overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                           color: Colors.white,
                                         ),
                                       ),
                                       GestureDetector(
                                         onTap: () {
-                                          // Get.toNamed("/forgotPassword");
+                                          Get.toNamed(Routes.registerRoute);
                                         },
-                                        child: const Text(
+                                        child: const ScaleText(
                                           'signUp',
+                                          overflow: TextOverflow.visible,
                                           style: TextStyle(
                                             color: Colors.white,
                                             decoration:
