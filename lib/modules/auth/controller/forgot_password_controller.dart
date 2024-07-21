@@ -19,6 +19,6 @@ class ForgetPasswordController extends GetxController {
   }
 
   Future<void> submit() async {
-    Get.offAllNamed(Routes.verifyAccountRoute);
+    Get.toNamed(Routes.verifyAccountRoute);
   }
 }

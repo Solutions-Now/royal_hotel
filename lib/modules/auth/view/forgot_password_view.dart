@@ -101,11 +101,14 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                                         top: 16.0, bottom: 8.0),
                                     child: ConstrainedBox(
                                       constraints: BoxConstraints(
-                                        maxHeight: Get.height * 0.3,
+                                        maxHeight: Get.height * 0.32,
                                       ),
-                                      child: Image.asset(
-                                        ImagesManager.forgetPassword,
+                                      child: SvgPicture.asset(
+                                        ImagesManager.forgetPasswordSvg,
                                       ),
+                                      // child: Image.asset(
+                                      //   ImagesManager.forgetPassword,
+                                      // ),
                                     ),
                                   ),
                                   ScaleText(

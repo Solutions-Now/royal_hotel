@@ -70,14 +70,15 @@ class LogInView extends StatelessWidget {
                                       : Alignment.centerLeft,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       ScaleText(
                                         localizations.login,
                                         overflow: TextOverflow.visible,
-                                        style:
-                                            theme.textTheme.titleLarge!.copyWith(
+                                        style: theme.textTheme.titleLarge!
+                                            .copyWith(
                                           letterSpacing: 1,
                                           fontSize: 24,
                                           color: customTheme.white,
@@ -126,8 +127,8 @@ class LogInView extends StatelessWidget {
                                       child: ScaleText(
                                         localizations.forgetPassword,
                                         overflow: TextOverflow.visible,
-                                        style:
-                                            theme.textTheme.titleMedium!.copyWith(
+                                        style: theme.textTheme.titleMedium!
+                                            .copyWith(
                                           color: customTheme.white,
                                           decoration: TextDecoration.underline,
                                           decorationColor: customTheme.white,
@@ -167,8 +168,8 @@ class LogInView extends StatelessWidget {
                                       child: ScaleText(
                                         localizations.signUp,
                                         overflow: TextOverflow.visible,
-                                        style:
-                                            theme.textTheme.titleMedium!.copyWith(
+                                        style: theme.textTheme.titleMedium!
+                                            .copyWith(
                                           color: customTheme.white,
                                           fontWeight: FontWeight.bold,
                                           decoration: TextDecoration.underline,

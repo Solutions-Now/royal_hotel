@@ -23,10 +23,12 @@ class CodePins extends StatelessWidget {
           height: 56,
           textStyle: theme.textTheme.titleLarge!.copyWith(
             fontSize: 20,
+            color: customTheme.white,
           ),
           decoration: BoxDecoration(
             border: Border.all(
-              color: customTheme.black,
+              // color: theme.colorScheme.secondary,
+              color: customTheme.white,
             ),
             borderRadius: BorderRadius.circular(8.0),
           ),
