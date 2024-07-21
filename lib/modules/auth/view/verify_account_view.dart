@@ -20,7 +20,7 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
               children: <Widget>[
                 Container(
                   width: Get.width,
-                  height: Get.height * 0.75,
+                  height: Get.height * 0.80,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(ImagesManager.loginBackground),
@@ -34,8 +34,8 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       stops: const [
-                        0.25,
-                        1,
+                        0.23,
+                        0.50,
                       ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
@@ -47,13 +47,16 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 64),
+                  padding: const EdgeInsets.only(
+                    top: 64.0,
+                    left: 16.0,
+                    right: 16.0,
+                  ),
                   child: Align(
-                    alignment: Alignment.topCenter,
+                    alignment: Alignment.topLeft,
                     child: Image.asset(
                       IconsManager.appIconWithoutBackgroung,
-                      width: Get.width,
-                      height: 150,
+                      height: 100,
                     ),
                   ),
                 ),
@@ -96,19 +99,16 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 0.0),
-                                    child: ConstrainedBox(
-                                      constraints: BoxConstraints(
-                                        maxHeight: Get.height * 0.32,
-                                      ),
-                                      child: SvgPicture.asset(
-                                        ImagesManager.verifyAccountSvg,
-                                      ),
-                                      // child: Image.asset(
-                                      //   ImagesManager.verifyAccount,
-                                      // ),
+                                  ConstrainedBox(
+                                    constraints: BoxConstraints(
+                                      maxHeight: Get.height * 0.40,
                                     ),
+                                    child: SvgPicture.asset(
+                                      ImagesManager.verifyAccountSvg,
+                                    ),
+                                    // child: Image.asset(
+                                    //   ImagesManager.verifyAccount,
+                                    // ),
                                   ),
                                   // const SizedBox(height: 8.0),
                                   Center(

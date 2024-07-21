@@ -11,10 +11,10 @@ class LogInView extends StatelessWidget {
           body: GetBuilder<LogInController>(
             builder: (controller) {
               return Stack(
-                children: <Widget>[
+                children: [
                   Container(
                     width: Get.width,
-                    height: Get.height * 0.75,
+                    height: Get.height * 0.80,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(ImagesManager.loginBackground),
@@ -28,8 +28,8 @@ class LogInView extends StatelessWidget {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         stops: const [
-                          0.25,
-                          1,
+                          0.23,
+                          0.50,
                         ],
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter,
@@ -41,13 +41,16 @@ class LogInView extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 64),
+                    padding: const EdgeInsets.only(
+                      top: 64.0,
+                      left: 16.0,
+                      right: 16.0,
+                    ),
                     child: Align(
-                      alignment: Alignment.topCenter,
+                      alignment: Alignment.topLeft,
                       child: Image.asset(
                         IconsManager.appIconWithoutBackgroung,
-                        width: Get.width,
-                        height: 150,
+                        height: 100,
                       ),
                     ),
                   ),

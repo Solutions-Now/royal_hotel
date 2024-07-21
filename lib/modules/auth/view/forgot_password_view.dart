@@ -20,7 +20,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
               children: <Widget>[
                 Container(
                   width: Get.width,
-                  height: Get.height * 0.75,
+                  height: Get.height * 0.80,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(ImagesManager.loginBackground),
@@ -34,8 +34,8 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       stops: const [
-                        0.25,
-                        1,
+                        0.23,
+                        0.50,
                       ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
@@ -47,13 +47,16 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 64),
+                  padding: const EdgeInsets.only(
+                    top: 64.0,
+                    left: 16.0,
+                    right: 16.0,
+                  ),
                   child: Align(
-                    alignment: Alignment.topCenter,
+                    alignment: Alignment.topLeft,
                     child: Image.asset(
                       IconsManager.appIconWithoutBackgroung,
-                      width: Get.width,
-                      height: 150,
+                      height: 100,
                     ),
                   ),
                 ),
@@ -101,7 +104,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                                         top: 16.0, bottom: 8.0),
                                     child: ConstrainedBox(
                                       constraints: BoxConstraints(
-                                        maxHeight: Get.height * 0.32,
+                                        maxHeight: Get.height * 0.40,
                                       ),
                                       child: SvgPicture.asset(
                                         ImagesManager.forgetPasswordSvg,
