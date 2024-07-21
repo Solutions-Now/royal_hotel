@@ -70,5 +70,6 @@
   "sendResetLink":"إرسال رابط إعادة تعيين",
   "codeWillExpireInFiveMinutes":"ستنتهي صلاحية الرمز خلال 5 دقائق!",
   "weSentYouCode": "لقد قمنا بإرسال رمز التحقق لك.",
+  "search":"بحث",
   "yourDeviceNotConnectedInternet": "جهازك غير متصل بالإنترنت."
 }
