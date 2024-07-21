@@ -70,5 +70,6 @@
   "sendResetLink":"Send reset link",
   "codeWillExpireInFiveMinutes": "The code will expire in 5 minutes!",
   "weSentYouCode": "We have sent you a verification code.",
+  "search":"Search",
   "yourDeviceNotConnectedInternet": "Your device is not connected to the Internet."
 }
