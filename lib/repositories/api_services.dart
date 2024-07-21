@@ -9,7 +9,7 @@ class ApiServices {
   factory ApiServices() => _instance;
 
   Future<http.Response> get(String endPoint) async {
-    final String url = '${DotenvManager.apiPath}/$endPoint';
+    final String url = '${DotenvManager.baseUrl}/$endPoint';
     final http.Response response = await http
         .get(
       Uri.parse(url),
@@ -28,7 +28,7 @@ class ApiServices {
     required String endPoint,
     required String body,
   }) async {
-    final String url = '${DotenvManager.apiPath}/$endPoint';
+    final String url = '${DotenvManager.baseUrl}/$endPoint';
     final http.Response response = await http
         .post(
       Uri.parse(url),
@@ -48,7 +48,7 @@ class ApiServices {
     required String endPoint,
     required body,
   }) async {
-    final String url = '${DotenvManager.apiPath}/$endPoint';
+    final String url = '${DotenvManager.baseUrl}/$endPoint';
     final http.Response response = await http
         .put(
       Uri.parse(url),
@@ -65,7 +65,7 @@ class ApiServices {
   }
 
   Future<http.Response> delete(String endPoint) async {
-    final String url = '${DotenvManager.apiPath}/$endPoint';
+    final String url = '${DotenvManager.baseUrl}/$endPoint';
     final http.Response response = await http
         .delete(
       Uri.parse(url),
