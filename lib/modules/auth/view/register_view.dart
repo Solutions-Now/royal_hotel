@@ -13,7 +13,7 @@ class RegisterView extends StatelessWidget {
               children: [
                 Container(
                   width: Get.width,
-                  height: Get.height * 0.75,
+                  height: Get.height * 0.80,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(ImagesManager.loginBackground),
@@ -22,11 +22,13 @@ class RegisterView extends StatelessWidget {
                   ),
                 ),
                 Container(
+                  width: Get.width,
+                  height: Get.height,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       stops: const [
-                        0.25,
-                        1,
+                        0.23,
+                        0.50,
                       ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
@@ -36,8 +38,20 @@ class RegisterView extends StatelessWidget {
                       ],
                     ),
                   ),
-                  width: double.infinity,
-                  height: Get.height,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 64.0,
+                    left: 16.0,
+                    right: 16.0,
+                  ),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Image.asset(
+                      IconsManager.appIconWithoutBackgroung,
+                      height: 100,
+                    ),
+                  ),
                 ),
                 Container(
                   margin: const EdgeInsets.all(8.0),
