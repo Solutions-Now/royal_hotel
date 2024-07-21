@@ -26,6 +26,7 @@ class VerifyAccountController extends GetxController {
       // await authRepository.verifyAccount(codeController.text, userId);
       Components().dismissLoading();
       Get.back(result: true);
+      Get.offAllNamed(Routes.logInRoute);
     } catch (e) {
       Components().dismissLoading();
       ExceptionManager().showException(e.toString());

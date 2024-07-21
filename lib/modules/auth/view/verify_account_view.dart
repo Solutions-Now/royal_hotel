@@ -8,7 +8,7 @@ class VerifyAccountView extends StatefulWidget {
 }
 
 class _VerifyAccountViewState extends State<VerifyAccountView> {
-  final VerifyAccountController _verifyAccountController = Get.find();
+  // final VerifyAccountController _verifyAccountController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -96,11 +96,21 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Image.asset(
-                                    ImagesManager.verifyAccount,
-                                    fit: BoxFit.cover,
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 0.0),
+                                    child: ConstrainedBox(
+                                      constraints: BoxConstraints(
+                                        maxHeight: Get.height * 0.32,
+                                      ),
+                                      child: SvgPicture.asset(
+                                        ImagesManager.verifyAccountSvg,
+                                      ),
+                                      // child: Image.asset(
+                                      //   ImagesManager.verifyAccount,
+                                      // ),
+                                    ),
                                   ),
-                                  const SizedBox(height: 8.0),
+                                  // const SizedBox(height: 8.0),
                                   Center(
                                     child: ScaleText(
                                       localizations.weSentYouCode,
@@ -141,8 +151,10 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                     child: Column(
                                       children: [
                                         CodePins(
-                                          controller: _verifyAccountController
-                                              .codeController,
+                                          controller: controller.codeController,
+                                          onCompleted: (code) {
+                                            // controller.verifyAccount(0);
+                                          },
                                         ),
                                         const SizedBox(height: 32.0),
                                         Padding(
@@ -151,8 +163,9 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                                           ),
                                           child: MainButton(
                                             onPressed: () {
-                                              _verifyAccountController
-                                                  .verifyAccount(0);
+                                              Get.offAllNamed(
+                                                  Routes.logInRoute);
+                                              // controller.verifyAccount(0);
                                             },
                                             title: localizations.send,
                                             color: theme.colorScheme.primary,
