@@ -19,7 +19,7 @@ class SwiperCardWidget extends StatelessWidget {
         Container(
           width: Get.width,
           height: Get.height * 0.5,
-          color: theme.colorScheme.primary,
+          // decoration: ,
           child: Image.asset(
             image,
             fit: BoxFit.cover,
@@ -27,36 +27,46 @@ class SwiperCardWidget extends StatelessWidget {
         ),
         Align(
           alignment: Components().isRTL()
-              ? Alignment.bottomLeft
-              : Alignment.bottomRight,
+              ? Alignment.bottomRight
+              : Alignment.bottomLeft,
           child: Container(
-            // width: Get.width,
-            // height: Get.height * 0.5,
-            // color: theme.colorScheme.primary,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 8.0,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
+            ),
+            decoration: BoxDecoration(
+              color: theme.colorScheme.primary.withOpacity(0.75),
+              borderRadius: BorderRadius.only(
+                topLeft: Components().isRTL()
+                    ? const Radius.circular(16.0)
+                    : const Radius.circular(0.0),
+                topRight: Components().isRTL()
+                    ? const Radius.circular(0.0)
+                    : const Radius.circular(16.0),
+                bottomLeft: const Radius.circular(0.0),
+                bottomRight: const Radius.circular(0.0),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    title,
-                    style: theme.textTheme.titleLarge!.copyWith(
-                      color: customTheme.white,
-                      fontSize: 24.0,
-                    ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  title,
+                  style: theme.textTheme.titleLarge!.copyWith(
+                    color: customTheme.white,
+                    fontSize: 24.0,
                   ),
-                  Text(
-                    description,
-                    style: theme.textTheme.titleMedium!.copyWith(
-                      color: customTheme.white,
-                      fontSize: 20.0,
-                    ),
+                ),
+                Text(
+                  description,
+                  style: theme.textTheme.titleMedium!.copyWith(
+                    color: customTheme.white,
+                    fontSize: 20.0,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
