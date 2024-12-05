@@ -1,12 +1,12 @@
 name: royal_hotel
-description: A new Flutter project.
+description: "A new Flutter project."
 
-publish_to: "none"
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.4.1 <4.0.0"
+  sdk: ^3.5.4
 
 dependencies:
   flutter:
@@ -67,9 +67,9 @@ import_sorter:
 ########## rename ##########
 #  dart pub global activate rename
 #  rename getAppName --targets ios,android,macos,windows,linux
-#  rename setAppName --targets ios,android,macos,windows,linux --value "App Name"
+#  rename setAppName --targets ios,android,macos,windows,linux --value "royal_hotel"
 #  rename getBundleId --targets ios,android,macos,windows,linux
-#  rename setBundleId --targets ios,android,macos,windows,linux --value "com.example.royalHotel"
+#  rename setBundleId --targets ios,android,macos,windows,linux --value "com.example.royal_hotel"
 
 ########## rename ##########
 

@@ -1,4 +1,4 @@
-import '../helpers/all_imports.dart';
+import 'package:royal_hotel/resources/helpers/all_imports.dart';
 
 class CustomThemeData extends ThemeExtension<CustomThemeData> {
   CustomThemeData({

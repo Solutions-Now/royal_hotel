@@ -35,8 +35,7 @@ class DateFormPicker extends StatelessWidget {
           firstDate: DateTime(1930),
           lastDate: DateTime.now(),
         );
-        if (dateTime == null) return;
-        onSelected(dateTime);
+        onSelected(dateTime!);
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 8.0),

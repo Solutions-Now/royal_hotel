@@ -16,7 +16,7 @@ class SwiperCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           width: Get.width,
           height: Get.height * 0.5,
           // decoration: ,
