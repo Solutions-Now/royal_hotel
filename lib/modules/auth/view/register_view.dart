@@ -5,191 +5,328 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UpgradeDialog(
-      child: SafeArea(
-        child: Scaffold(
-          body: GetBuilder<RegisterController>(
-            builder: (controller) {
-              return Stack(
-                children: <Widget>[
-                  Container(
-                    width: Get.width,
-                    height: Get.height * 0.75,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(ImagesManager.loginBackground),
-                        fit: BoxFit.cover,
-                      ),
+    return SafeArea(
+      child: Scaffold(
+        body: GetBuilder<RegisterController>(
+          builder: (controller) {
+            return Stack(
+              children: [
+                Container(
+                  width: Get.width,
+                  height: Get.height * 0.80,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(ImagesManager.loginBackground),
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        stops: const [
-                          0.25,
-                          1,
-                        ],
-                        begin: Alignment.bottomCenter,
-                        end: Alignment.topCenter,
-                        colors: [
-                          theme.colorScheme.primary,
-                          theme.colorScheme.primary.withOpacity(0.25),
-                        ],
-                      ),
+                ),
+                Container(
+                  width: Get.width,
+                  height: Get.height,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      stops: const [
+                        0.23,
+                        0.50,
+                      ],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      colors: [
+                        theme.colorScheme.primary,
+                        theme.colorScheme.primary.withOpacity(0.25),
+                      ],
                     ),
-                    width: double.infinity,
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxHeight: MediaQuery.of(context).size.height,
-                        maxWidth: MediaQuery.of(context).size.width,
-                      ),
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 15),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 64.0,
+                    left: 16.0,
+                    right: 16.0,
+                  ),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Image.asset(
+                      IconsManager.appIconWithoutBackgroung,
+                      height: 100,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(8.0),
+                  child: Form(
+                    key: controller.registerGlobalKey,
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            const Spacer(),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                IconsManager.appIconWithoutBackgroung,
-                                width: Get.width,
-                                height: 150,
+                            GestureDetector(
+                              onTap: () {
+                                Get.back();
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(6.0),
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.primary,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Icon(
+                                  Icons.arrow_back_ios_new_rounded,
+                                  color: customTheme.white,
+                                ),
                               ),
                             ),
-                            const Spacer(
-                              flex: 3,
+                            const SizedBox(width: 8),
+                            ScaleText(
+                              localizations.signUp,
+                              overflow: TextOverflow.visible,
+                              style: theme.textTheme.titleLarge!.copyWith(
+                                color: customTheme.white,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
                             ),
-                            const Align(
-                              alignment: Alignment.centerLeft,
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                              ),
                               child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.end,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  ScaleText(
-                                    'signIn',
-                                    style: TextStyle(
-                                      letterSpacing: 1,
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  ScaleText(
-                                    'login Description',
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.white,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            UnderlineTextField(
-                              label: 'email',
-                              textInputType: TextInputType.emailAddress,
-                              controller: controller.emailController,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(6.0),
-                                topRight: Radius.circular(6.0),
-                              ),
-                            ),
-                            UnderlineTextField(
-                              label: 'password',
-                              textInputType: TextInputType.visiblePassword,
-                              controller: controller.passwordController,
-                              obscureText: true,
-                              borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(6.0),
-                                bottomRight: Radius.circular(6.0),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 15),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    // Get.toNamed("/forgotPassword");
-                                  },
-                                  child: const Text(
-                                    'forgetPassword',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      decoration: TextDecoration.underline,
-                                      decorationColor: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // const Spacer(
-                            //   flex: 1,
-                            // ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 64,
-                                  ),
-                                  child: MainButton(
-                                    onPressed: controller.submit,
-                                    title: 'logIn',
-                                    color: theme.colorScheme.primary,
-                                    backgroundColor: Colors.white,
-                                    // isOutlined: false,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 32,
-                                ),
-                                Align(
-                                  // alignment: Alignment.centerRight,
-                                  child: Row(
+                                  Row(
                                     children: [
-                                      const Text(
-                                        'dontHaveAccount? ',
-                                        style: TextStyle(
-                                          color: Colors.white,
+                                      Expanded(
+                                        child: MainButton(
+                                          onPressed: () {},
+                                          padding: const EdgeInsets.all(0.0),
+                                          titleWidget: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              ScaleText(
+                                                localizations.facebook,
+                                                overflow: TextOverflow.visible,
+                                                style: theme
+                                                    .textTheme.titleLarge!
+                                                    .copyWith(
+                                                  color: customTheme.white,
+                                                  letterSpacing: 1,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 8.0),
+                                              Icon(
+                                                Icons.facebook,
+                                                color: customTheme.white,
+                                              ),
+                                            ],
+                                          ),
+                                          // color: theme.colorScheme.primary,
+                                          backgroundColor: Colors.blue,
+                                          // isOutlined: false,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 16.0),
+                                      Expanded(
+                                        child: MainButton(
+                                          onPressed: () {},
+                                          padding: const EdgeInsets.all(0.0),
+                                          titleWidget: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              ScaleText(
+                                                overflow: TextOverflow.visible,
+                                                localizations.google,
+                                                style: theme
+                                                    .textTheme.titleLarge!
+                                                    .copyWith(
+                                                  color: customTheme.white,
+                                                  letterSpacing: 1,
+                                                ),
+                                              ),
+                                              Icon(
+                                                Icons.mail_outline_rounded,
+                                                color: customTheme.white,
+                                              ),
+                                            ],
+                                          ),
+                                          backgroundColor: Colors.red,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8),
+                                  ScaleText(
+                                    localizations.orSignUpWithEmail,
+                                    overflow: TextOverflow.visible,
+                                    style: theme.textTheme.titleLarge!.copyWith(
+                                      color: customTheme.white,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  UnderlineTextField(
+                                    label: localizations.username,
+                                    textInputType: TextInputType.name,
+                                    controller: controller.userNameController,
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(8.0),
+                                      topRight: Radius.circular(8.0),
+                                    ),
+                                  ),
+                                  UnderlineTextField(
+                                    label: localizations.email,
+                                    textInputType: TextInputType.emailAddress,
+                                    controller: controller.emailController,
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(0.0),
+                                    ),
+                                  ),
+                                  PhoneTextField(
+                                    countryFlag: controller.selectedCountryFlag,
+                                    controller:
+                                        controller.phoneNumberController,
+                                    haveStartPadding: true,
+                                    onSelect: (
+                                      String? countryCode,
+                                      String? countryName,
+                                      String? phoneCode,
+                                      String? flagEmoji,
+                                    ) {
+                                      controller.setSelectedCountryCode =
+                                          countryCode!;
+                                      controller.setSelectedPhoneCode =
+                                          phoneCode!;
+                                      controller.setSelectedCountryFlag =
+                                          flagEmoji!;
+                                    },
+                                  ),
+                                  const SizedBox(height: 8.0),
+                                  GenderFormPicker(
+                                    selectedGender: controller.genderType,
+                                    onSelect: (int? value) {
+                                      controller.setGenderType = value;
+                                    },
+                                  ),
+                                  const SizedBox(height: 8.0),
+                                  DateFormPicker(
+                                    label: localizations.birthDay,
+                                    controller: controller.birthDayController,
+                                    onSelected: (DateTime? date) {
+                                      controller.setBirthDay = date;
+                                    },
+                                  ),
+                                  UnderlineTextField(
+                                    label: localizations.password,
+                                    textInputType:
+                                        TextInputType.visiblePassword,
+                                    controller: controller.passwordController,
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(0.0),
+                                    ),
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        controller.hidePassword
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color: theme.colorScheme.primary,
+                                      ),
+                                      onPressed: controller.changeHidePassword,
+                                    ),
+                                    obscureText: controller.hidePassword,
+                                  ),
+                                  UnderlineTextField(
+                                    label: localizations.confirmPassword,
+                                    textInputType:
+                                        TextInputType.visiblePassword,
+                                    controller:
+                                        controller.confirmPasswordController,
+                                    suffixIcon: IconButton(
+                                      icon: Icon(
+                                        controller.hidePassword
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color: theme.colorScheme.primary,
+                                      ),
+                                      onPressed:
+                                          controller.changeConfirmPassword,
+                                    ),
+                                    obscureText: controller.confirmPassword,
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(8.0),
+                                      bottomRight: Radius.circular(8.0),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 64,
+                                    ),
+                                    child: MainButton(
+                                      onPressed: controller.submit,
+                                      title: localizations.signUp,
+                                      color: theme.colorScheme.primary,
+                                      backgroundColor: customTheme.white,
+                                      // isOutlined: false,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 32,
+                                  ),
+                                  Row(
+                                    children: [
+                                      ScaleText(
+                                        '${localizations.alreadyHaveAccount} ',
+                                        overflow: TextOverflow.visible,
+                                        style: theme.textTheme.titleMedium!
+                                            .copyWith(
+                                          color: customTheme.white,
                                         ),
                                       ),
                                       GestureDetector(
                                         onTap: () {
-                                          // Get.toNamed("/forgotPassword");
+                                          Get.toNamed(Routes.logInRoute);
                                         },
-                                        child: const Text(
-                                          'signUp',
-                                          style: TextStyle(
-                                            color: Colors.white,
+                                        child: ScaleText(
+                                          localizations.login,
+                                          overflow: TextOverflow.visible,
+                                          style: theme.textTheme.titleMedium!
+                                              .copyWith(
+                                            color: customTheme.white,
+                                            fontWeight: FontWeight.bold,
                                             decoration:
                                                 TextDecoration.underline,
-                                            decorationColor: Colors.white,
+                                            decorationColor: customTheme.white,
                                           ),
                                         ),
                                       ),
                                     ],
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 16,
-                                ),
-                              ],
-                            )
-                          ],
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                  )
-                ],
-              );
-            },
-          ),
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

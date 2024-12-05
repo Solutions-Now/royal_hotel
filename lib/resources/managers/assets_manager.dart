@@ -45,6 +45,18 @@ class IconsManager {
 class ImagesManager {
   static const String connectionErrorSvg = '$_imagesPath/connection_error.svg';
   static const String loginBackground = '$_imagesPath/login.jpeg';
+  static const String forgetPasswordSvg = '$_imagesPath/forget_password.svg';
+  static const String verifyAccountSvg = '$_imagesPath/verify_account.svg';
+  static const String ads1 = '$_imagesPath/ads1.jpg';
+  static const String ads2 = '$_imagesPath/ads2.jpeg';
+  static const String ads3 = '$_imagesPath/ads3.jpg';
+  static const String ads4 = '$_imagesPath/ads4.jpg';
+  
+  static const String landryShops = '$_imagesPath/landry-shops.jpg';
+  static const String meetingAndEvents = '$_imagesPath/meeting-and-events.jpg';
+  static const String restaurants = '$_imagesPath/restaurants.jpg';
+  static const String rooms = '$_imagesPath/rooms.jpeg';
+  static const String spaAndFitness = '$_imagesPath/spa-and-fitness.jpeg';
   // static const String newPasswordSvg = '$_imagesPath/new-password.svg';
   // static const String resetPasswordSvg = '$_imagesPath/reset-password.svg';
   // static const String welcomeSvg = '$_imagesPath/welcome.svg';

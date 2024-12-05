@@ -26,8 +26,9 @@ class DrawerHome extends StatelessWidget {
                   onTap: () {
                     // Get.toNamed(Routes.profileRoute);
                   },
-                  child: Text(
+                  child: ScaleText(
                     'User Name',
+                    overflow: TextOverflow.visible,
                     style: theme.textTheme.titleLarge!.copyWith(
                       color: theme.colorScheme.surface,
                     ),
@@ -37,8 +38,9 @@ class DrawerHome extends StatelessWidget {
                   onTap: () {
                     // Get.toNamed(Routes.profileRoute);
                   },
-                  child: Text(
+                  child: ScaleText(
                     'user@example.com',
+                    overflow: TextOverflow.visible,
                     style: theme.textTheme.titleMedium!.copyWith(
                       color: theme.colorScheme.surface,
                     ),
@@ -63,8 +65,9 @@ class DrawerHome extends StatelessWidget {
                 ),
               ),
               ListTile(
-                title: Text(
+                title: ScaleText(
                   localizations.aboutUs,
+                  overflow: TextOverflow.visible,
                   style: theme.textTheme.titleLarge!.copyWith(
                     color: customTheme.black,
                     fontWeight: FontWeight.normal,
@@ -87,8 +90,9 @@ class DrawerHome extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(
+                title: ScaleText(
                   localizations.rateApp,
+                  overflow: TextOverflow.visible,
                   style: theme.textTheme.titleLarge!.copyWith(
                     color: customTheme.black,
                     fontWeight: FontWeight.normal,
@@ -101,8 +105,9 @@ class DrawerHome extends StatelessWidget {
                 onTap: rateApp,
               ),
               ListTile(
-                title: Text(
+                title: ScaleText(
                   localizations.inviteFriend,
+                  overflow: TextOverflow.visible,
                   style: theme.textTheme.titleLarge!.copyWith(
                     color: customTheme.black,
                     fontWeight: FontWeight.normal,
@@ -115,8 +120,9 @@ class DrawerHome extends StatelessWidget {
                 onTap: shareApp,
               ),
               ListTile(
-                title: Text(
+                title: ScaleText(
                   localizations.feedback,
+                  overflow: TextOverflow.visible,
                   style: theme.textTheme.titleLarge!.copyWith(
                     color: customTheme.black,
                     fontWeight: FontWeight.normal,
@@ -131,8 +137,9 @@ class DrawerHome extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(
+                title: ScaleText(
                   localizations.termsAndConditions,
+                  overflow: TextOverflow.visible,
                   style: theme.textTheme.titleLarge!.copyWith(
                     color: customTheme.black,
                     fontWeight: FontWeight.normal,
@@ -145,8 +152,9 @@ class DrawerHome extends StatelessWidget {
                 onTap: openTermsAndConditions,
               ),
               ListTile(
-                title: Text(
+                title: ScaleText(
                   localizations.settings,
+                  overflow: TextOverflow.visible,
                   style: theme.textTheme.titleLarge!.copyWith(
                     color: customTheme.black,
                     fontWeight: FontWeight.normal,
@@ -161,8 +169,9 @@ class DrawerHome extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(
+                title: ScaleText(
                   localizations.logOut,
+                  overflow: TextOverflow.visible,
                   style: theme.textTheme.titleLarge!.copyWith(
                     color: customTheme.black,
                     fontWeight: FontWeight.normal,
@@ -226,8 +235,9 @@ class DrawerHome extends StatelessWidget {
         children: [
           const SizedBox(height: 8.0),
           Center(
-            child: Text(
+            child: ScaleText(
               localizations.sendYourFeedback,
+              overflow: TextOverflow.visible,
               style: theme.textTheme.titleLarge!.copyWith(
                 color: customTheme.black,
               ),
@@ -252,7 +262,10 @@ class DrawerHome extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          child: Text(localizations.cancel),
+          child: ScaleText(
+            localizations.cancel,
+            overflow: TextOverflow.visible,
+          ),
         ),
         OutlinedButton(
           style: OutlinedButton.styleFrom(
@@ -264,8 +277,9 @@ class DrawerHome extends StatelessWidget {
               width: 1.0,
             ),
           ),
-          child: Text(
+          child: ScaleText(
             localizations.send,
+            overflow: TextOverflow.visible,
             style: theme.textTheme.titleLarge,
           ),
           onPressed: () async {
@@ -309,10 +323,12 @@ class DrawerHome extends StatelessWidget {
   Future<void> logoutDialog(BuildContext context) async {
     final ScaleText title = ScaleText(
       localizations.logOut,
+      overflow: TextOverflow.visible,
       isFromDialog: true,
     );
     final ScaleText content = ScaleText(
       localizations.areYouSureLogOut,
+      overflow: TextOverflow.visible,
       style: theme.textTheme.titleMedium!.copyWith(
         color: customTheme.error,
       ),
@@ -320,9 +336,12 @@ class DrawerHome extends StatelessWidget {
     );
     final List<Widget> actions = [
       TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.offAllNamed(Routes.logInRoute);
+        },
         child: ScaleText(
           localizations.yes,
+          overflow: TextOverflow.visible,
           style: theme.textTheme.titleLarge,
           isFromDialog: true,
         ),
@@ -333,6 +352,7 @@ class DrawerHome extends StatelessWidget {
         },
         child: ScaleText(
           localizations.no,
+          overflow: TextOverflow.visible,
           style: theme.textTheme.titleLarge,
           isFromDialog: true,
         ),

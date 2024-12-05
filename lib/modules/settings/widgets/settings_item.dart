@@ -17,6 +17,7 @@ class SettingsItem extends StatelessWidget {
     return ListTile(
       title: ScaleText(
         title,
+        overflow: TextOverflow.visible,
         style: theme.textTheme.titleLarge,
       ),
       leading: leading,

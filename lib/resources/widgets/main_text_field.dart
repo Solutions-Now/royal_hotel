@@ -23,6 +23,7 @@ class MainTextField extends StatelessWidget {
     this.maxLines = 1,
     this.suffixIcon,
     this.inputFormatters,
+    this.borderRadius,
   });
 
   final TextEditingController? controller;
@@ -45,99 +46,98 @@ class MainTextField extends StatelessWidget {
   final int? minLines;
   final int? maxLines;
   final List<TextInputFormatter>? inputFormatters;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
     // final FocusNode defaultFocusNode = focusNode ?? FocusNode();
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextFormField(
-        controller: controller,
-        autofillHints: autofillHints,
-        obscureText: obscureText,
-        readOnly: readOnly,
-        enabled: enabled,
-        keyboardType: keyboardType,
-        focusNode: focusNode,
-        textInputAction: textInputAction,
-        maxLength: maxLength,
-        minLines: minLines,
-        maxLines: maxLines,
-        style: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.w400,
-          color: customTheme.black,
+    return TextFormField(
+      controller: controller,
+      autofillHints: autofillHints,
+      obscureText: obscureText,
+      readOnly: readOnly,
+      enabled: enabled,
+      keyboardType: keyboardType,
+      focusNode: focusNode,
+      textInputAction: textInputAction,
+      maxLength: maxLength,
+      minLines: minLines,
+      maxLines: maxLines,
+      // style: TextStyle(
+      //   fontSize: 14.0,
+      //   fontWeight: FontWeight.w400,
+      //   color: customTheme.black,
+      // ),
+      decoration: InputDecoration(
+        fillColor: customTheme.textField,
+        filled: true,
+        labelText: label,
+        labelStyle: theme.textTheme.titleLarge!.copyWith(
+          fontWeight: FontWeight.normal,
         ),
-        decoration: InputDecoration(
-          fillColor: theme.colorScheme.surface,
-          filled: true,
-          labelText: label,
-          labelStyle: TextStyle(
-            fontSize: 14.0,
-            color: customTheme.grey,
+        errorStyle: theme.textTheme.titleMedium!.copyWith(
+          color: customTheme.error,
+        ),
+        hintText: hint,
+        hintStyle: theme.textTheme.titleLarge!.copyWith(
+          fontWeight: FontWeight.normal,
+        ),
+        prefixIcon: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+          child: prefixIcon,
+        ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 7.0),
+        prefixIconColor: theme.colorScheme.primary,
+        prefixIconConstraints: const BoxConstraints(
+          maxHeight: 28.0,
+          maxWidth: 32.0,
+        ),
+        suffixIcon: Padding(
+          padding: EdgeInsets.only(
+            right: Components().isRTL() ? 0.0 : 8.0,
+            left: Components().isRTL() ? 8.0 : 0.0,
           ),
-          hintText: hint,
-          hintStyle: TextStyle(
-            fontSize: 14.0,
-            color: customTheme.grey,
+          child: suffixIcon,
+        ),
+        suffixIconConstraints: const BoxConstraints(
+          maxHeight: 24.0,
+          maxWidth: 32.0,
+        ),
+        border: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: customTheme.textField,
           ),
-          prefixIcon: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: prefixIcon,
+          borderRadius: borderRadius ?? BorderRadius.circular(0),
+        ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: customTheme.textField,
           ),
-          contentPadding: const EdgeInsets.symmetric(vertical: 7.0),
-          prefixIconColor: theme.colorScheme.primary,
-          prefixIconConstraints: const BoxConstraints(
-            maxHeight: 28.0,
-            maxWidth: 32.0,
+          borderRadius: borderRadius ?? BorderRadius.circular(0),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: customTheme.textField,
           ),
-          suffixIcon: Padding(
-            padding: EdgeInsets.only(
-              right: Components().isRTL() ? 0.0 : 8.0,
-              left: Components().isRTL() ? 8.0 : 0.0,
-            ),
-            child: suffixIcon,
+          borderRadius: borderRadius ?? BorderRadius.circular(0),
+        ),
+        disabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: customTheme.textField,
           ),
-          suffixIconConstraints: const BoxConstraints(
-            maxHeight: 24.0,
-            maxWidth: 32.0,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(
-              color: customTheme.grey,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(
-              color: customTheme.grey,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(
-              color: theme.colorScheme.primary,
-            ),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(
-              color: customTheme.grey,
-            ),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(
-              color: customTheme.grey,
-            ),
+          borderRadius: borderRadius ?? BorderRadius.circular(0),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(
+            color: customTheme.error,
           ),
         ),
-        inputFormatters: inputFormatters,
-        validator: validator,
-        onChanged: onChanged,
-        onFieldSubmitted: onFieldSubmitted,
       ),
+      inputFormatters: inputFormatters,
+      validator: validator,
+      onChanged: onChanged,
+      onFieldSubmitted: onFieldSubmitted,
     );
   }
 }

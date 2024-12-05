@@ -42,6 +42,7 @@ class Components {
             Expanded(
               child: ScaleText(
                 message,
+                overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
             ),
@@ -115,9 +116,10 @@ class Components {
   }) {
     return SystemUiOverlayStyle(
       statusBarColor: statusBarColor ?? theme.colorScheme.primary,
-      statusBarBrightness: statusBarBrightness ?? (isDark() ? Brightness.dark : Brightness.light),
-      statusBarIconBrightness:
-          statusBarIconBrightness ?? (isDark() ? Brightness.dark : Brightness.light),
+      statusBarBrightness: statusBarBrightness ??
+          (isDark() ? Brightness.dark : Brightness.light),
+      statusBarIconBrightness: statusBarIconBrightness ??
+          (isDark() ? Brightness.dark : Brightness.light),
     );
   }
 
@@ -153,7 +155,8 @@ class Components {
   //   return croppedFile;
   // }
 
-  Future<TimeOfDay?> timePicker(BuildContext context, {TimeOfDay? initialTime}) async {
+  Future<TimeOfDay?> timePicker(BuildContext context,
+      {TimeOfDay? initialTime}) async {
     final TimeOfDay? time = await showTimePicker(
       context: context,
       initialTime: initialTime ?? const TimeOfDay(hour: 8, minute: 0),

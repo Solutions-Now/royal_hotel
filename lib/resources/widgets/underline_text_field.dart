@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../main.dart';
-import '../../components.dart';
+import '../../main.dart';
+import '../components.dart';
 
 class UnderlineTextField extends StatelessWidget {
   const UnderlineTextField({
@@ -96,19 +96,19 @@ class UnderlineTextField extends StatelessWidget {
           ),
           border: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: customTheme.grey,
+              color: customTheme.textField,
             ),
             borderRadius: borderRadius ?? BorderRadius.circular(0),
           ),
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: customTheme.grey,
+              color: customTheme.textField,
             ),
             borderRadius: borderRadius ?? BorderRadius.circular(0),
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: customTheme.grey,
+              color: customTheme.textField,
             ),
             borderRadius: borderRadius ?? BorderRadius.circular(0),
           ),

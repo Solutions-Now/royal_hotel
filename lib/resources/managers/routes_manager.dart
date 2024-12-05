@@ -5,6 +5,8 @@ class Routes {
   static const String splashRoute = '/SplashView';
   static const String registerRoute = '/RegisterView';
   static const String logInRoute = '/LogInView';
+  static const String forgotPasswordRoute = '/ForgotPasswordView';
+  static const String verifyAccountRoute = '/VerifyAccountView';
   static const String navigationRoute = '/NavigationView';
   static const String homeRoute = '/HomeView';
   static const String connectionErrorRoute = '/ConnectionErrorView';
@@ -28,6 +30,16 @@ class RouteGenerator {
         name: Routes.logInRoute,
         page: () => const LogInView(),
         binding: LogInBinding(),
+      ),
+      GetPage(
+        name: Routes.forgotPasswordRoute,
+        page: () => const ForgetPasswordView(),
+        binding: ForgetPasswordBinding(),
+      ),
+      GetPage(
+        name: Routes.verifyAccountRoute,
+        page: () => const VerifyAccountView(),
+        binding: VerifyAccountBinding(),
       ),
       GetPage(
         name: Routes.navigationRoute,
@@ -54,10 +66,16 @@ class RouteGenerator {
   static Scaffold unDefinedRoute() {
     return Scaffold(
       appBar: AppBar(
-        title: Text(localizations.noRouteFound),
+        title: ScaleText(
+          localizations.noRouteFound,
+          overflow: TextOverflow.visible,
+        ),
       ),
       body: Center(
-        child: Text(localizations.noRouteFound),
+        child: ScaleText(
+          localizations.noRouteFound,
+          overflow: TextOverflow.visible,
+        ),
       ),
     );
   }

@@ -1,9 +1,11 @@
 import '../../../resources/helpers/all_imports.dart';
 
 class LogInController extends GetxController {
+  final GlobalKey<FormState> logInGlobalKey = GlobalKey<FormState>();
   AuthType authType = AuthType.login;
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  bool hidePassword = true;
 
   @override
   void onInit() {
@@ -17,6 +19,11 @@ class LogInController extends GetxController {
     emailController.dispose();
     passwordController.dispose();
     super.onClose();
+  }
+
+  void changeHidePassword() {
+    hidePassword = !hidePassword;
+    update();
   }
 
   void changeAuthType() {
